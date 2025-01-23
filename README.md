@@ -1,7 +1,7 @@
 # Awareness Training: OWASP Top 10
 
 ## Objective
-The goal of this training is to empower Nuvei developers to identify, understand, and mitigate the most critical vulnerabilities in software development, as outlined by the OWASP Top 10. The training uses a fun and engaging narrative format, paired with interactive examples and practical exercises, to ensure maximum retention and applicability.
+The goal of this training is to empower Nuvei developers to identify, understand, and mitigate the most critical vulnerabilities in software development, as outlined by the OWASP Top 10. The training is delivered through an interactive **e-learning platform**, providing flexibility for participants to complete the modules at their own pace.
 
 ## Target Audience
 - **Role:** Software developers, architects, and engineers at Nuvei.
@@ -9,15 +9,15 @@ The goal of this training is to empower Nuvei developers to identify, understand
 - **Assumptions:** Familiarity with programming, basic cybersecurity concepts, and secure development practices.
 
 ## Training Format
-This training combines **story-driven narratives** and **interactive coding exercises**. Participants follow the journey of a fictional development team (*SecureDevSquad*) as they encounter and solve real-world security challenges. Each lesson includes:
-- A relatable story illustrating the vulnerability.
-- Hands-on coding exercises to identify and fix issues.
-- Key takeaways and actionable steps.
+This training is hosted on the company's **learning platform (Campus)** and consists of self-paced modules that incorporate:
+- **Story-driven narratives** to illustrate real-world security challenges.
+- **Interactive coding exercises** directly embedded in the platform.
+- **Quizzes and assessments** to reinforce key concepts.
 
 ## Duration
-- **Total Training Time:** 6 hours
-  - **3 Modules**, each lasting 2 hours.
-  - Includes breaks and Q&A sessions.
+- **Total Estimated Time:** 6-8 hours.
+  - Each module takes approximately **30-45 minutes** to complete.
+  - Participants can complete the training over a span of **1-2 weeks**, depending on their schedule.
 
 ## Learning Objectives
 By the end of this training, participants will be able to:
@@ -109,13 +109,14 @@ By the end of this training, participants will be able to:
 - **Key Takeaways:** Harden server configurations against SSRF attacks.
 
 ## Materials Provided
-1. **Training Slides:** Comprehensive overview of each module.
-2. **Code Samples:** Examples of vulnerable and secure code.
-3. **Reference Manual:**
+1. **Training Platform Access:**
+   - Hosted on Nuvei’s Campus e-learning platform.
+   - Includes interactive modules, quizzes, and coding exercises.
+2. **Reference Manual:**
    - Detailed descriptions of each OWASP Top 10 vulnerability.
    - Real-world attack examples.
    - Specific mitigation strategies tailored to Nuvei.
-4. **Post-Training Assessment:**
+3. **Post-Training Assessment:**
    - A quiz to measure understanding.
    - Feedback form to refine future sessions.
 
@@ -131,12 +132,12 @@ By the end of this training, participants will be able to:
    - Improved awareness and secure coding practices.
 
 ## Next Steps for Deployment
-1. Finalize the narrative format and exercises for each module.
-2. Pilot the training with a small group of developers and gather feedback.
-3. Iterate on the materials based on feedback.
-4. Scale the training to the entire development team.
+1. Upload the modules and interactive exercises to the e-learning platform.
+2. Announce the training program to the development team and provide access instructions.
+3. Monitor participation and completion rates through the platform.
+4. Collect feedback to refine the training and ensure continuous improvement.
 
 ---
 
 **Final Notes:**
-This training is designed to be practical, engaging, and directly applicable to Nuvei’s development workflows. Feedback and collaboration will be key to making this program a success. Let’s work together to empower our developers with the tools and knowledge they need to build secure systems!
+This training is designed to be flexible, practical, and directly applicable to Nuvei’s development workflows. Hosting it on the e-learning platform ensures accessibility for all team members, regardless of their schedules. Let’s work together to empower our developers with the tools and knowledge they need to build secure systems!
