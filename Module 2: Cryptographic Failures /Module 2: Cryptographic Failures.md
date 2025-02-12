@@ -1,13 +1,13 @@
-# Module 2: Cryptographic Failures
+# **Module 2: Cryptographic Failures**
 
-## Introduction
+## **Introduction**
 **Cryptographic failures** occur when sensitive information is mishandled, exposing data such as **session tokens, passwords, and transactions**.
 
 In this module, we demonstrate how a **poor authentication implementation** can lead to **token exposure in URLs**, allowing an **attacker to perform unauthorized transactions**.
 
 ---
 
-## Vulnerability: Authentication Token in URL
+## **Vulnerability: Authentication Token in URL**
 **Issue:** Some payment platforms include **authentication tokens in URLs**, making them visible in:
 - Browser history.
 - Server logs.
@@ -15,7 +15,7 @@ In this module, we demonstrate how a **poor authentication implementation** can 
 
 ---
 
-### **Insecure Code Example**
+## **Insecure Code Example**
 This code **sends authentication tokens in the URL**, making them accessible to attackers.
 
 ```javascript
@@ -29,7 +29,7 @@ app.get('/checkout', (req, res) => {
 
 ---
 
-### **Simulated Attack**
+## **Simulated Attack**
 How an attacker can exploit this flaw
 
 1. The user accesses an insecure URL:
@@ -46,7 +46,7 @@ https://payments.com/checkout?token=123456abcdef
 
 ---
 
-### **Proper Implementation: Using HTTP Headers**
+## **Proper Implementation: Using HTTP Headers**
 Instead of passing the token in the URL, it should be sent securely via HTTP headers.
 
 ```javascript
@@ -59,32 +59,30 @@ app.get('/checkout', (req, res) => {
     validatePayment(token);
     res.send("Payment confirmed securely.");
 });
-
-});
 ```
-### Why is this secure?
+### **Why is this secure?**
 - The token is not exposed in the URL.
 - Browsers and server logs do not store it.
 - Attackers cannot easily capture it.
 
 ---
 
-### **How to Test the Vulnerability in the Platform**
+## **How to Test the Vulnerability in the Platform**
 
-### Step 1: Simulate an Attack
+### **Step 1: Simulate an Attack**
 1. Log into the user dashboard.
 2. Look for the payment option using token in the URL.
 3. Copy the generated URL and open it in another browser.
 4. You will see that you can complete the transaction without authentication.
 
-### Step 2: Test the Secure Implementation
+### **Step 2: Test the Secure Implementation**
 1. Log into the user dashboard again.
 2. Use the secure payment option with token in headers.
 3. You will see that authentication is required, and the token is not exposed.
 
 ---
 
-### **Conclusion**
+## **Conclusion**
 
 - NEVER pass authentication tokens in URLs.
 - Always use HTTP headers to transmit authentication tokens.
