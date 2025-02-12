@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Admin Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Log Out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <h3>Admin Menu</h3>
+            <ul>
+                <li><a href="#" id="vulnerabilitiesLink">Vulnerabilities</a></li>
+                <li><a href="#" id="transactionsLink">View Transactions</a></li>
+                <li><a href="#" id="usersLink">Manage Users</a></li>
+            </ul>
+        </aside>
+
+        <main class="content" id="mainContent">
+            <!-- Vulnerabilities Section -->
+            <section id="vulnerabilitiesSection">
+                <h2>Vulnerabilities</h2>
+                <p>
+                    As an administrator, it’s critical to understand and address vulnerabilities within the platform. Below are real examples of **Broken Access Control** vulnerabilities and how to fix them.
+                </p>
+                
+                <!-- Example 1: Privilege Escalation -->
+                <div class="vulnerability-example">
+                    <h3>Example 1: Privilege Escalation</h3>
+                    <p>
+                        <strong>Vulnerability:</strong> A regular user modified their client-side role to gain admin privileges.
+                    </p>
+                    <div class="code-block vulnerability">
+                        <pre><code>
+// Vulnerable Code (No Validation)
+if (req.body.role === 'admin') {
+    grantAdminAccess();
+}</code></pre>
+                    </div>
+                    <p><strong>Impact:</strong> Attackers can escalate privileges and gain unauthorized control over sensitive admin features.</p>
+                    <h4>Solution:</h4>
+                    <div class="code-block solution">
+                        <pre><code>
+// Secure Code (Proper Role Validation)
+if (user.role !== 'admin') {
+    return res.status(403).send('Access Denied');
+}</code></pre>
+                    </div>
+                    <p><strong>Result:</strong> The server ensures that only authorized admins can access sensitive areas.</p>
+                </div>
+
+                <!-- Example 2: Unauthorized Access to Reports -->
+                <div class="vulnerability-example">
+                    <h3>Example 2: Unauthorized Access to Sensitive Reports</h3>
+                    <p>
+                        <strong>Vulnerability:</strong> A user manually entered an admin URL (`/admin/reports`) to access sensitive financial data.
+                    </p>
+                    <div class="code-block vulnerability">
+                        <pre><code>
+// Vulnerable Code (No Role Validation)
+app.get('/admin/reports', (req, res) => {
+    const reports = getSensitiveReports();
+    res.send(reports);
+});</code></pre>
+                    </div>
+                    <p><strong>Impact:</strong> Unauthorized users can access private company financial reports, leading to data leaks.</p>
+                    <h4>Solution:</h4>
+                    <div class="code-block solution">
+                        <pre><code>
+// Secure Code (Role-Based Access Control)
+app.get('/admin/reports', (req, res) => {
+    if (req.user.role !== 'admin') {
+        return res.status(403).send('Access Denied');
+    }
+    const reports = getSensitiveReports();
+    res.send(reports);
+});</code></pre>
+                    </div>
+                    <p><strong>Result:</strong> Only administrators can access financial reports, preventing unauthorized data exposure.</p>
+                </div>
+            </section>
+
+            <!-- Transactions Section -->
+            <section id="transactionsSection" class="hidden">
+                <h2>Transactions</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Transaction ID</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12345</td>
+                            <td>$100.00</td>
+                            <td>Completed</td>
+                        </tr>
+                        <tr>
+                            <td>67890</td>
+                            <td>$50.00</td>
+                            <td>Pending</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Users Section -->
+            <section id="usersSection" class="hidden">
+                <h2>Manage Users</h2>
+                <p>Below, you can add users, reset passwords, and assign roles. This section highlights secure user management practices.</p>
+                <button class="btn" id="addUserBtn">Add New User</button>
+                <div id="addUserForm" class="hidden">
+                    <form>
+                        <label for="username">Username</label>
+                        <input type="text" id="newUsername" placeholder="Enter username" required>
+                        
+                        <label for="role">Role</label>
+                        <select id="newRole">
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                        
+                        <button type="submit" class="btn">Save</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

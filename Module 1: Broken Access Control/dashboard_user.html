@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>User Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Log Out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <h3>User Menu</h3>
+            <ul>
+                <li><a href="#" id="vulnerabilitiesLink">Vulnerabilities</a></li>
+                <li><a href="#" id="transactionsLink">View Transactions</a></li>
+            </ul>
+        </aside>
+
+        <main class="content" id="mainContent">
+            <!-- Vulnerabilities Section -->
+            <section id="vulnerabilitiesSection">
+                <h2>Vulnerabilities</h2>
+                <p><strong>Example:</strong> Broken Access Control</p>
+                <p>
+                    In this simulation, a regular user can escalate privileges due to improper server-side validation. 
+                    This demonstrates how an attacker might gain unauthorized access.
+                </p>
+                <p><strong>Try this:</strong></p>
+                <form id="privilegeEscalationForm">
+                    <label for="role">Change your role (simulating client-side manipulation):</label>
+                    <select id="role">
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+                <p id="escalationMessage" class="hidden vulnerability-example"></p>
+            </section>
+
+            <!-- Transactions Section -->
+            <section id="transactionsSection" class="hidden">
+                <h2>Your Transactions</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Transaction ID</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12345</td>
+                            <td>$100.00</td>
+                            <td>Completed</td>
+                        </tr>
+                        <tr>
+                            <td>67890</td>
+                            <td>$50.00</td>
+                            <td>Pending</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
