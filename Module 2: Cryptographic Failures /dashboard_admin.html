@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Cryptographic Failures</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="dashboard">
+    <header class="header">
+        <h1>Payment Platform Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="logout">Log Out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="#" id="vulnerabilitiesLink">Cryptographic Failures</a></li>
+                <li><a href="#" id="transactionsLink">View Transactions</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section id="vulnerabilitiesSection">
+                <h2>Cryptographic Failures</h2>
+                <p>Incorrect cryptographic implementations can expose sensitive data in payment systems.</p>
+
+                <div class="vulnerability-example">
+                    <h3>Vulnerability: Exposed Transaction Token in URL</h3>
+                    <p>
+                        <strong>What’s the issue?</strong>  
+                        Some payment platforms pass authentication tokens <b>inside the URL</b>, making them visible in: Browser history, Server logs and Shared links
+                    </p>
+                    <h4>Simulated Attack</h4>
+                    <p>Click the button below to simulate an <b>insecure</b> transaction that passes the token in the URL.</p>
+                    <a href="checkout.html?token=123456abcdef" class="btn">Proceed with Payment (Insecure)</a>
+                    <p>If you <b>copy this URL</b> and open it in another browser, you can complete the payment without logging in. This is a <b>critical security flaw</b>.</p>
+
+                    <h4>How can an attacker exploit this?</h4>
+                    <ol>
+                        <li>The user <b>copies the URL</b> and shares it with someone.</li>
+                        <li>An attacker <b>grabs the token</b> from the URL and uses it to impersonate the user.</li>
+                        <li>The attacker <b>makes unauthorized payments</b> without authentication.</li>
+                    </ol>
+
+                    <h3>Secure Implementation: Using HTTP Headers</h3>
+                    <p><strong>What’s the fix?</strong> Instead of passing tokens in URLs, they should be sent in the <b>Authorization Header</b>.</p>
+                    <div class="code-block solution">
+                        <pre><code>
+// Secure Payment Request (Token in Headers)
+fetch('/checkout', {
+    method: 'POST',
+    headers: {
+        'Authorization': 'Bearer 123456abcdef'
+    }
+});</code></pre>
+                    </div>
+
+                    <h4>Why is this secure?</h4>
+                    <ul>
+                        <li>Tokens <b>are not exposed in the URL</b>.</li>
+                        <li>Tokens <b>are encrypted during transmission</b>.</li>
+                        <li>Tokens <b>can be time-limited and expire quickly</b>.</li>
+                    </ul>
+
+                    <h3>Try the Secure Implementation</h3>
+                    <p>Click below to proceed with a <b>secure</b> payment.</p>
+                    <button class="btn" id="secureCheckout">Proceed Securely</button>
+                </div>
+            </section>
+
+            <section id="transactionsSection" class="hidden">
+                <h2>Your Transactions</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Transaction ID</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12345</td>
+                            <td>$100.00</td>
+                            <td>Completed</td>
+                        </tr>
+                        <tr>
+                            <td>67890</td>
+                            <td>$50.00</td>
+                            <td>Pending</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
