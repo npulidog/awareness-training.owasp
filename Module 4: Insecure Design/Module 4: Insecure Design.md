@@ -7,7 +7,7 @@ In this module, we demonstrate how **weak password reset functionality** allows 
 
 ---
 
-## **Vulnerability: Authentication Token in URL**
+## **Vulnerability: Insecure Password Reset**
 **Issue:** The platform allows users to **change their password without verifying the old password**, leading to:
 - **Account takeover** if an attacker gains access to the reset function.
 - **Privilege escalation**, allowing unauthorized users to modify credentials.
