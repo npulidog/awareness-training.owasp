@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Authentication Failures</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="userDashboard">
+    <header class="header">
+        <h1>Payment Platform - Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="dashboard-container">
+        <aside class="sidebar">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="#" id="securityIssueLink">Weak Authentication Test</a></li>
+            </ul>
+        </aside>
+
+        <section id="securityIssueSection" class="content">
+            <h2>🔴 Security Risk: Weak Authentication</h2>
+            <p>This system uses a weak authentication method, allowing attackers to guess passwords easily.</p>
+            
+            <h3>🚨 Try to Guess the Password</h3>
+            <input type="text" id="guessPassword" placeholder="Enter password guess">
+            <button class="btn" id="testWeakLogin">Attempt Login</button>
+            <p id="weakLoginResult"></p>
+
+            <div class="vulnerability-example">
+                <h3>🚨 Why is this dangerous?</h3>
+                <p>If authentication is weak, attackers can:</p>
+                <ul>
+                    <li>❌ Use default or common passwords (e.g., "123456", "password")</li>
+                    <li>❌ Exploit brute-force attacks to gain access</li>
+                    <li>❌ Log in without multi-factor authentication (MFA)</li>
+                </ul>
+            </div>
+
+            <h3>✅ Secure Fix: Strong Authentication</h3>
+            <p>To prevent attacks, use:</p>
+            <ul>
+                <li>✔ Strong password policies</li>
+                <li>✔ Account lockouts after multiple failed attempts</li>
+                <li>✔ Multi-factor authentication (MFA)</li>
+            </ul>
+            <button class="btn" id="enableMFA">Enable MFA (Secure Fix)</button>
+            <p id="secureFixResult"></p>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Platform - Identification and Authentication Failures</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="loginPage">
+    <div class="login-container">
+        <div class="login-header">
+            <h1>Welcome to Payment Platform</h1>
+            <p>This module shows how weak authentication can let attackers bypass security and take over accounts.</p>
+        </div>
+        <div class="login-form-container">
+            <form id="loginForm" class="login-form">
+                <h2>Login</h2>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <button type="submit" class="login-btn">Log In</button>
+                <p id="errorMessage" class="error-message"></p>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
