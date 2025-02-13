@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Logging and Monitoring</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="userDashboard">
+    <header class="header">
+        <h1>Payment Platform - Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="dashboard-container">
+        <aside class="sidebar">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="#" id="securityIssueLink">Security Logging Test</a></li>
+            </ul>
+        </aside>
+
+        <section id="securityIssueSection" class="content">
+            <h2>🔴 Security Risk: No Logging or Monitoring</h2>
+            <p>Without proper logging and monitoring, security breaches go undetected.</p>
+            
+            <h3>🚨 Simulated Attacks: Test Logging Failures</h3>
+            <button class="btn" id="failedLoginAttempt">Simulate Failed Login</button>
+            <button class="btn" id="accessAdminPanel">Attempt Unauthorized Access</button>
+            <button class="btn" id="modifyTransaction">Modify Transaction Data</button>
+            <p id="attackResult"></p>
+
+            <h3>🔎 Real-Time Log Visibility</h3>
+            <p>Check if security events are being recorded:</p>
+            <ul id="userSecurityLog"></ul>
+
+            <h3>✅ Secure Fix: Enable Real-Time Security Logging</h3>
+            <button class="btn" id="enableLogging">Enable Logging & Monitoring</button>
+            <p id="secureFixResult"></p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
