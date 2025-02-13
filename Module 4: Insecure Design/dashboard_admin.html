@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Insecure Design</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="adminDashboard">
+    <header class="header">
+        <h1>Payment Platform - Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="dashboard-container">
+        <aside class="sidebar">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="#" id="securityIssueLink">Account Security</a></li>
+            </ul>
+        </aside>
+
+        <section id="securityIssueSection" class="content">
+            <h2>🔴 Insecure Account Feature</h2>
+            <p>Users can change their password without verifying their old one.</p>
+            <label for="newPassword">Enter New Password:</label>
+            <input type="password" id="newPassword">
+            <button class="btn" id="changePassword">Change Password</button>
+            <p id="passwordChangeResult"></p>
+
+            <div class="vulnerability-example">
+                <h3>🚨 Why is this dangerous?</h3>
+                <p>If an attacker gains access to your account, they can change your password and lock you out.</p>
+            </div>
+
+            <h3>✅ Secure Design: Password Change with Verification</h3>
+            <label for="oldPassword">Enter Old Password:</label>
+            <input type="password" id="oldPassword">
+            <label for="newSecurePassword">Enter New Password:</label>
+            <input type="password" id="newSecurePassword">
+            <button class="btn" id="changePasswordSecure">Change Password Securely</button>
+            <p id="passwordChangeSecureResult"></p>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
