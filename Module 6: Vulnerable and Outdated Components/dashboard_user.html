@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Vulnerable Components</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="userDashboard">
+    <header class="header">
+        <h1>Payment Platform - Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="dashboard-container">
+        <aside class="sidebar">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="#" id="securityIssueLink">Outdated Component Test</a></li>
+            </ul>
+        </aside>
+
+        <section id="securityIssueSection" class="content">
+            <h2>🔴 Security Risk: Using an Outdated Component</h2>
+            <p>This application is using an outdated JavaScript library that has security vulnerabilities.</p>
+            
+            <button class="btn" id="checkLibraryVersion">Check Library Version</button>
+            <p id="libraryVersionResult"></p>
+
+            <h3>🚨 Try Running a Security Test</h3>
+            <button class="btn" id="runSecurityTest">Run Security Test</button>
+            <p id="securityTestResult"></p>
+
+            <div class="vulnerability-example">
+                <h3>🚨 Why is this dangerous?</h3>
+                <p>Outdated components can expose applications to known attacks, including:</p>
+                <ul>
+                    <li>❌ Cross-Site Scripting (XSS) attacks</li>
+                    <li>❌ Data leaks and authentication bypass</li>
+                    <li>❌ Unpatched vulnerabilities exploited by attackers</li>
+                </ul>
+            </div>
+
+            <h3>✅ Secure Fix: Update Components</h3>
+            <button class="btn hidden" id="updateLibrary">Update Component</button>
+            <p id="updateResult"></p>
+
+            <div class="code-block solution">
+                <p>Developers should always update dependencies to secure versions:</p>
+                <code>// Check and update dependencies<br>
+npm outdated && npm update</code>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
