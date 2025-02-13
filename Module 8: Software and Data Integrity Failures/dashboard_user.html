@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Data Integrity Failures</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="userDashboard">
+    <header class="header">
+        <h1>Payment Platform - Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="dashboard-container">
+        <aside class="sidebar">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="#" id="securityIssueLink">Software Update Test</a></li>
+            </ul>
+        </aside>
+
+        <section id="securityIssueSection" class="content">
+            <h2>🔴 Security Risk: Unverified Software Updates</h2>
+            <p>The system allows software updates without verification, making it vulnerable to unauthorized modifications.</p>
+            
+            <h3>🚨 Simulated Attack: Install an Unverified Update</h3>
+            <button class="btn" id="checkUpdate">Check for Updates</button>
+            <p id="updateStatus"></p>
+
+            <p>Enter a malicious update URL and attempt an injection:</p>
+            <input type="text" id="maliciousUpdate" placeholder="Enter fake update URL">
+            <button class="btn" id="runTamperAttack">Apply Unverified Update</button>
+            <p id="tamperResult"></p>
+
+            <div class="vulnerability-example">
+                <h3>🚨 Why is this dangerous?</h3>
+                <p>Insecure updates can allow attackers to:</p>
+                <ul>
+                    <li>❌ Inject malware or backdoors</li>
+                    <li>❌ Modify financial transactions</li>
+                    <li>❌ Gain full system control</li>
+                </ul>
+            </div>
+
+            <h3>✅ Secure Fix: Verify Updates with Digital Signatures</h3>
+            <p>The system should only allow cryptographically signed updates from trusted sources.</p>
+            <button class="btn" id="verifyUpdate">Verify Update Integrity</button>
+            <p id="secureFixResult"></p>
+        </section>
+        
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
