@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Injection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="adminDashboard">
+    <header class="header">
+        <h1>Payment Platform - Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="dashboard-container">
+        <aside class="sidebar">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="#" id="transactionsLink">Injection Test</a></li>
+            </ul>
+        </aside>
+
+        <section id="transactionsSection" class="content">
+            <h2>SQL Injection Attack Simulation</h2>
+            <p>🔍 Try entering a **Transaction ID** to search:</p>
+            <input type="text" id="transactionSearch" placeholder="Enter Transaction ID">
+            <button class="btn" id="searchTransaction">Search</button>
+            <p id="searchResult"></p>
+
+            <div class="vulnerability-example">
+                <h3> What if an attacker tries this?</h3>
+                <p>Instead of a real transaction ID, the attacker enters:</p>
+                <div class="code-block vulnerability">
+                    <code>' OR '1'='1</code>
+                </div>
+                <p> This forces the system to return ALL transactions instead of just one.</p>
+            </div>
+
+            <h3>📋 Transactions Found</h3>
+            <table id="transactionTable" class="hidden">
+                <tr><th>ID</th><th>Amount</th><th>Status</th></tr>
+                <tbody id="transactionResults"></tbody>
+            </table>
+
+            <div class="code-block solution">
+                <h3>✅ Secure Solution</h3>
+                <p>Instead of concatenating user input into a query like this:</p>
+                <code>query = "SELECT * FROM transactions WHERE id = '" + userInput + "'";</code>
+                <p>We should use **Prepared Statements**:</p>
+                <code>query = "SELECT * FROM transactions WHERE id = ?";</code>
+                <p>🔐 This prevents attackers from injecting malicious SQL!</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
