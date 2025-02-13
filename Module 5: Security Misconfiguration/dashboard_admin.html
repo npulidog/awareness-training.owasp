@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Security Misconfiguration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="adminDashboard">
+    <header class="header">
+        <h1>Payment Platform - Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="dashboard-container">
+        <aside class="sidebar">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="#" id="securityIssueLink">Debug Mode Exploit</a></li>
+            </ul>
+        </aside>
+
+        <section id="securityIssueSection" class="content">
+            <h2>🔴 Security Misconfiguration: Exposed Debug Mode</h2>
+            <p>Debug Mode is currently enabled, which allows attackers to see system details.</p>
+            
+            <button class="btn" id="enableDebugMode">Enable Debug Mode</button>
+            <button class="btn hidden" id="disableDebugMode">Disable Debug Mode (Secure Fix)</button>
+
+            <div id="debugInfo" class="hidden">
+                <h3>⚠️ Debug Information Exposed</h3>
+                <pre>
+DEBUG MODE: ON
+Database: payments_db
+API Key: 12345-abcde
+Admin Password Hash: $2y$10$abcdef123456
+Server Path: /var/www/payments/
+                </pre>
+            </div>
+
+            <h3>🚨 Simulated Attack: Try Exploiting Debug Mode</h3>
+            <p>Enter an attack command and see if you can access system files:</p>
+            <input type="text" id="attackCommand" placeholder="Enter command (e.g., ls /etc/)">
+            <button class="btn" id="runAttack">Run Command</button>
+            <p id="attackResult"></p>
+
+            <div class="vulnerability-example">
+                <h3>🚨 Why is this dangerous?</h3>
+                <p>When Debug Mode is enabled, attackers can:</p>
+                <ul>
+                    <li>❌ Access system configuration files</li>
+                    <li>❌ Extract database credentials</li>
+                    <li>❌ Exploit remote code execution vulnerabilities</li>
+                </ul>
+            </div>
+
+            <h3>✅ Secure Fix: Disable Debug Mode</h3>
+            <p>Applications should disable Debug Mode in production to prevent attacks.</p>
+            <div class="code-block solution">
+                <code>DEBUG = False  # Secure setting</code>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
