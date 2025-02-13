@@ -15,8 +15,8 @@ This training is hosted on Nuvei’s **learning platform (Campus)** and consists
 - **Quizzes and assessments** to reinforce learning outcomes.
 
 ## **Duration**
-- **Total Estimated Time:** 6-8 hours.
-  - Each module takes approximately **30-45 minutes** to complete.
+- **Total Estimated Time:** 3-4 hours.
+  - Each module takes approximately **10-15 minutes** to complete.
   - Participants can finish the training over **1-2 weeks**, depending on their availability.
 
 ## **Learning Objectives**
