@@ -7,7 +7,7 @@ In this module, we demonstrate how **SQL Injection (SQLi)** can be used to **man
 
 ---
 
-## **Vulnerability: Authentication Token in URL**
+## **Vulnerability: SQL Injection in User Input**
 **Issue:** The payment system allows **direct user input** in SQL queries without proper sanitization, leading to:
 - Unauthorized access to **transaction records**.
 - **Bypassing authentication** using SQL queries.
