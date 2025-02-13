@@ -49,7 +49,7 @@ POST /change-password
 
 ---
 
-## **Proper Implementation: Using HTTP Headers**
+## **Proper Implementation: Require Old Password Verification**
 Instead of allowing password changes without authentication, the system should require the current password.
 
 ```javascript
