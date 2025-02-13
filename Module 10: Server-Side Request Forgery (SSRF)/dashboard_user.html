@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Server-Side Request Forgery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="userDashboard">
+    <header class="header">
+        <h1>Payment Platform - Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="dashboard-container">
+        <aside class="sidebar">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="#" id="securityIssueLink">SSRF Attack Simulation</a></li>
+            </ul>
+        </aside>
+
+        <section id="securityIssueSection" class="content">
+            <h2>🔴 Security Risk: Server-Side Request Forgery (SSRF)</h2>
+            <p>The system allows users to request external URLs without validation, making it vulnerable to SSRF.</p>
+            
+            <h3>🚨 Simulated Attack: Send a Malicious Request</h3>
+            <p>Enter a URL and see if the system fetches restricted resources:</p>
+            <input type="text" id="ssrfInput" placeholder="Enter URL (e.g., http://internal-server/admin)">
+            <button class="btn" id="sendSSRFRequest">Send Request</button>
+            <p id="ssrfResult"></p>
+
+            <div class="vulnerability-example">
+                <h3>🚨 Why is this dangerous?</h3>
+                <p>SSRF can allow attackers to:</p>
+                <ul>
+                    <li>❌ Access internal-only resources (e.g., cloud metadata, admin endpoints)</li>
+                    <li>❌ Scan internal networks for vulnerabilities</li>
+                    <li>❌ Exploit privileged server permissions</li>
+                </ul>
+            </div>
+
+            <h3>✅ Secure Fix: Restrict External Requests</h3>
+            <p>The system should only allow pre-approved, secure URLs.</p>
+            <button class="btn" id="enableSSRFProtection">Enable SSRF Protection</button>
+            <p id="secureFixResult"></p>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
