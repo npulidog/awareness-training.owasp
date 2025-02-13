@@ -51,7 +51,7 @@ SELECT * FROM transactions WHERE id = '12345' OR '1'='1'
 
 ---
 
-## **Proper Implementation: Using HTTP Headers**
+## **Proper Implementation: Using Parameterized Queries**
 Instead of inserting user input directly into a query, prepared statements should be used to sanitize input.
 
 ```javascript
