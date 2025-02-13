@@ -54,7 +54,7 @@ Admin Password Hash: $2y$10$abcdef123456
 
 ---
 
-## **Proper Implementation: Using HTTP Headers**
+## **Proper Implementation: Disable Debug Mode in Production**
 Debugging features should be disabled in production environments to prevent information leakage.
 
 ```javascript
