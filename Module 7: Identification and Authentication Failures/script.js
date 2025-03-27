@@ -36,20 +36,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const testWeakLoginBtn = document.getElementById("testWeakLogin");
     const weakLoginResult = document.getElementById("weakLoginResult");
+    const guessInput = document.getElementById("guessPassword");
 
     if (testWeakLoginBtn) {
         testWeakLoginBtn.addEventListener("click", () => {
-            const passwordGuess = document.getElementById("guessPassword").value.trim();
+            const passwordGuess = guessInput.value.trim();
+
             if (weakPasswords.includes(passwordGuess)) {
-                weakLoginResult.innerHTML = `⚠️ Weak password accepted: "${passwordGuess}" (Security risk!)`;
+                weakLoginResult.innerHTML = `
+                    ✅ <strong>Access granted!</strong><br>
+                    The system accepted <em>${passwordGuess}</em> as a valid password.<br>
+                    <span style="color:red;">This highlights how weak authentication exposes systems to unauthorized access.</span>
+                `;
+                guessInput.disabled = true;
+                testWeakLoginBtn.disabled = true;
                 logSecurityEvent(`❌ Weak password used: ${passwordGuess}`);
             } else {
-                weakLoginResult.innerHTML = `❌ Login failed.`;
                 failedAttempts++;
-
                 if (failedAttempts >= 5) {
                     weakLoginResult.innerHTML = `🔒 Account locked due to multiple failed attempts!`;
+                    testWeakLoginBtn.disabled = true;
+                    guessInput.disabled = true;
                     logSecurityEvent(`❌ Account locked after ${failedAttempts} failed attempts.`);
+                } else {
+                    weakLoginResult.innerHTML = `❌ Login failed. (${failedAttempts}/5 attempts used)`;
                 }
             }
         });
@@ -61,8 +71,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (enableMFAButton) {
         enableMFAButton.addEventListener("click", () => {
             mfaEnabled = true;
-            secureFixResult.innerHTML = `✅ Multi-Factor Authentication (MFA) Enabled.`;
-            logSecurityEvent(`✅ MFA enabled for better security.`);
+            const code = prompt("🔐 MFA Enabled!\nEnter the 6-digit code sent to your device:");
+            if (code === "123456") {
+                secureFixResult.innerHTML = `✅ MFA code verified. Strong authentication is now active.`;
+                logSecurityEvent(`✅ MFA enabled and verified by user.`);
+            } else {
+                secureFixResult.innerHTML = `❌ Invalid MFA code. Try again.`;
+                logSecurityEvent(`❌ MFA verification failed.`);
+            }
         });
     }
 
