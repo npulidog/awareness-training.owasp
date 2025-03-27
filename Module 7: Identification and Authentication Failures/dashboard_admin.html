@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Authentication Failures</title>
+    <title>User Dashboard - Authentication Failures</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body id="adminDashboard">
+<body id="userDashboard">
     <header class="header">
         <h1>Payment Platform - Dashboard</h1>
         <nav>
@@ -15,7 +15,7 @@
             </ul>
         </nav>
     </header>
-    
+
     <main class="dashboard-container">
         <aside class="sidebar">
             <h3>Menu</h3>
@@ -34,12 +34,12 @@
             <p id="weakLoginResult"></p>
 
             <div class="vulnerability-example">
-                <h3>🚨 Why is this dangerous?</h3>
-                <p>If authentication is weak, attackers can:</p>
+                <h3>🔍 Security implications of weak authentication</h3>
+                <p>If authentication mechanisms are weak, attackers can:</p>
                 <ul>
                     <li>❌ Use default or common passwords (e.g., "123456", "password")</li>
-                    <li>❌ Exploit brute-force attacks to gain access</li>
-                    <li>❌ Log in without multi-factor authentication (MFA)</li>
+                    <li>❌ Perform brute-force or credential stuffing attacks</li>
+                    <li>❌ Bypass access controls in the absence of MFA</li>
                 </ul>
             </div>
 
@@ -53,7 +53,6 @@
             <button class="btn" id="enableMFA">Enable MFA (Secure Fix)</button>
             <p id="secureFixResult"></p>
         </section>
-
     </main>
 
     <script src="script.js"></script>
